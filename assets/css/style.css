@@ -1,9 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+/*
+	A few rules for the page:
+		- Padding and margin off for tighter layout.
+		- Borders eat into the size of the element.
+		- Headers are serif fonts; else is sans-serif.
+		- Content requires a minimum of 300px width.
+ */
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: sans-serif;
+	font-family: "Arimo", Verdana, sans-serif;
 }
+body {
+	min-width: 300px;
+}
+h1, h2 {
+	font-family: "Arbutus Slab", serif;
+}
+
+/*
+	Header:
+ */
 header {
 	background: #2d4d66;
 	padding: 20px 0;
@@ -13,13 +33,15 @@ header {
 	align-items: center;
 }
 nav {
-	width: 50%;
+	flex: 1000 1 60vw;
 }
 h1 {
 	font-size: 3em;
 	background-color: #73d7e1;
 	color: #2d4d66;
-	padding: 2px 10px 2px 75px;
+	flex: 1 1 8em;
+	padding: 2px 10px;
+	text-align: right;
 }
 ul {
 	display: flex;
@@ -28,7 +50,7 @@ ul {
 	flex-wrap: wrap;
 	font-size: 120%;
 	font-weight: 300;
-	padding-right: 100px;
+	padding-right: 5vw;
 }
 li {
 	display: inline;
@@ -39,14 +61,19 @@ a {
 	border-bottom: 3px solid #73d7e1;
 	color: #73d7e1;
 }
+
+/*
+	Hero:
+ */
 figure {
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
 	height: 200px;
 	width:100%;
-	background-image: url(https://via.placeholder.com/2000/300);
-	padding: 25px 100px;
+	background-image: url("../img/azulejos.jpg");
+	background-color: #000000;
+	padding: 25px 5vw;
 }
 figure > h2 {
 	font-size: 2.5em;
@@ -54,6 +81,10 @@ figure > h2 {
 	color: #2d4d66;
 	padding: 5px 15px;
 }
+
+/*
+	Main body:
+ */
 main {
 	padding: 20px 10%;
 }
@@ -72,4 +103,20 @@ section > h2, footer > h2 {
 }
 section > p {
 	padding: 10px 30px;
+}
+
+@media all and (max-width: 900px) {
+	ul > span {
+		flex-basis: 100%;
+	}
+}
+@media all and (max-width: 600px) {
+	figure {
+		justify-content: center;
+		text-align: center;
+	}
+	li {
+		flex-basis: 100%;
+		text-align: right;
+	}
 }
