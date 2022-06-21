@@ -3,16 +3,16 @@
 
 /*
 	A few rules for the page:
-		- Padding and margin off for tighter layout.
 		- Borders eat into the size of the element.
-		- Headers are serif fonts; else is sans-serif.
-		- Content requires a minimum of 300px width.
+		- Padding and margin off for tighter layout.
+		- Content requires a minimum of 300px width to function.
+		- Headers are serif fonts; everything else is sans-serif.
  */
 * {
-	padding: 0;
-	margin: 0;
 	box-sizing: border-box;
 	font-family: "Arimo", Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
 }
 body {
 	min-width: 300px;
@@ -23,68 +23,85 @@ h1, h2 {
 
 /*
 	Colors used in style:
-		-
+		- shade_light is roughly aquamarine.
+		- shade_dark is more of a cadet blue.
  */
- :root {
+:root {
 	--shade_light:	#73d7e1;
 	--shade_dark:	#2d4d66;
- }
+}
 
 /*
-	Header:
+	Element styles across page:
+		- H2 is bigger; only a little smaller than h1's enlarged size.
+		- Lists are inline and stretch with the page.
+		- They're slightly larger than text elsewhere, and spaced out.
  */
-header {
-	background: var(--shade_dark);
-	padding: 20px 0;
-	color: var(--shade_light);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-nav {
-	flex: 1000 1 60vw;
-}
-h1 {
-	font-size: 3em;
-	background-color: var(--shade_light);
-	color: var(--shade_dark);
-	flex: 1 1 8em;
-	padding: 2px 10px;
-	text-align: right;
+h2 {
+	font-size: 2.3em;
 }
 ul {
+	/* Flex. */
 	display: flex;
 	justify-content: flex-end;
 	flex-wrap: wrap;
+
+	/* Sizing. */
 	font-size: 120%;
-	font-weight: 300;
 	padding-right: 5vw;
 }
 li {
 	display: inline;
 	padding: 5px 20px;
 }
+
+/*
+	Header:
+ */
+header {
+	align-items: center;
+	background: var(--shade_dark);
+	color: var(--shade_light);
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+nav {
+	flex: 1000 1 60vw;
+}
+h1 {
+	background-color: var(--shade_light);
+	color: var(--shade_dark);
+	flex: 1 1 8em;
+	font-size: 3em;
+	padding: 2px 10px;
+	text-align: right;
+}
 nav a {
-	text-decoration: none;
 	border-bottom: 3px solid var(--shade_light);
 	color: var(--shade_light);
+	text-decoration: none;
 }
 
 /*
 	Hero:
  */
 figure {
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
+	/* Sizing. */
 	height: 200px;
 	width:100%;
-	background-image: url("../img/azulejos.jpg");
 	padding: 25px 5vw;
+
+	/* Flex. */
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+
+	/* Style. */
+	background-image: url("../img/azulejos.jpg");
 	box-shadow: 0px 5px 10px -1px #00000033;
 }
 figure > h2 {
-	font-size: 2.5em;
 	background-color: var(--shade_light);
 	color: var(--shade_dark);
 	padding: 5px 15px;
@@ -94,22 +111,21 @@ figure > h2 {
 	Main body:
  */
 main {
-	padding: 20px 5%;
+	padding: 20px 5vw;
 }
-section, footer {
+section {
 	display: flex;
 	margin: 20px 0px;
 	align-items: center;
 }
 main h2 {
-	width: 15%;
+	width: 15vw;
 	text-align: right;
-	background-color: none;
-	border-right: 4px solid var(--shade_dark);
-	font-size: 2.5em;
 	padding: 0 10px;
 	color: var(--shade_dark);
 	flex: 0 0 5em;
+	align-self: stretch;
+	border-right: 4px solid var(--shade_dark);
 }
 p {
 	text-indent: 1em;
@@ -121,6 +137,7 @@ section {
 section > ul {
 	justify-content: flex-end;
 	padding-right: 2em;
+	height: 100%;
 }
 section a {
 	color: var(--shade_dark);
@@ -128,6 +145,14 @@ section a {
 	border-bottom: 2px solid var(--shade_dark);
 	padding-bottom: 4px;
 }
+section ul, section li {
+	flex-grow: 1;
+}
+section ul {
+	padding: 0 5vw;
+}
+
+
 
 /*
 	Media inquires:
@@ -154,7 +179,6 @@ section a {
 @media all and (max-width: 600px) {
 	figure {
 		justify-content: center;
-		text-align: center;
 	}
 	nav li {
 		flex-basis: 100%;
@@ -168,7 +192,7 @@ section a {
 	}
 	main h2, footer h2 {
 		flex: 0 0 1.5em;
-		width: 80%;
+		width: 80vw;
 		border-right: none;
 		border-bottom: 2px solid var(--shade_dark);
 		text-align: center;
@@ -177,6 +201,5 @@ section a {
 	}
 	section > ul {
 		justify-content: center;
-		padding-right: 0;
 	}
 }
