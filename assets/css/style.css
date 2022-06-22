@@ -3,11 +3,17 @@
 
 /*
 	A few rules for the page:
+		- Colors for page in :root.
 		- Borders eat into the size of the element.
 		- Padding and margin off for tighter layout.
 		- Content requires a minimum of 300px width to function.
 		- Headers are serif fonts; everything else is sans-serif.
  */
+:root {
+	--base:			#f3f3f3;
+	--primary:		#2d4d66;
+	--secondary:	#73d7e1;
+}
 * {
 	box-sizing: border-box;
 	font-family: "Arimo", Verdana, sans-serif;
@@ -15,20 +21,11 @@
 	padding: 0;
 }
 body {
+	background: var(--base);
 	min-width: 300px;
 }
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: "Arbutus Slab", serif;
-}
-
-/*
-	Colors used in style:
-		- shade_light is roughly aquamarine.
-		- shade_dark is more of a cadet blue.
- */
-:root {
-	--shade_light:	#73d7e1;
-	--shade_dark:	#2d4d66;
 }
 
 /*
@@ -37,8 +34,14 @@ h1, h2 {
 		- Lists are inline and stretch with the page.
 		- They're slightly larger than text elsewhere, and spaced out.
  */
+h1 {
+	font-size: 3em;
+}
 h2 {
 	font-size: 2.3em;
+}
+h3 {
+	font-size: 1.9em;
 }
 ul {
 	/* Flex. */
@@ -60,26 +63,25 @@ li {
  */
 header {
 	align-items: center;
-	background: var(--shade_dark);
-	color: var(--shade_light);
+	background: var(--primary);
+	color: var(--secondary);
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 0;
 }
 nav {
-	flex: 1000 1 60vw;
+	flex: 100 1 60vw;
 }
 h1 {
-	background-color: var(--shade_light);
-	color: var(--shade_dark);
+	background-color: var(--secondary);
+	color: var(--primary);
 	flex: 1 1 8em;
-	font-size: 3em;
 	padding: 2px 10px;
 	text-align: right;
 }
 nav a {
-	border-bottom: 3px solid var(--shade_light);
-	color: var(--shade_light);
+	border-bottom: 3px solid var(--secondary);
+	color: var(--secondary);
 	text-decoration: none;
 }
 
@@ -102,8 +104,8 @@ figure {
 	box-shadow: 0px 5px 10px -1px #00000033;
 }
 figure > h2 {
-	background-color: var(--shade_light);
-	color: var(--shade_dark);
+	background-color: var(--secondary);
+	color: var(--primary);
 	padding: 5px 15px;
 }
 
@@ -117,80 +119,94 @@ section {
 	display: flex;
 	margin: 20px 0px;
 	align-items: center;
+	justify-content: space-between;
 }
 main h2 {
 	width: 15vw;
 	text-align: right;
 	padding: 0 10px;
-	color: var(--shade_dark);
+	color: var(--primary);
 	flex: 0 0 5em;
 	align-self: stretch;
-	border-right: 4px solid var(--shade_dark);
+	border-right: 4px solid var(--primary);
 }
-p {
+
+/*
+	About Me:
+ */
+#about p {
 	text-indent: 1em;
 	padding: 0.625em 2em;
 }
-section {
-	justify-content: space-between;
-}
-section > ul {
-	justify-content: flex-end;
-	padding-right: 2em;
-	height: 100%;
-}
-section li > a {
-	color: var(--shade_dark);
-	text-decoration: none;
-	border-bottom: 2px solid var(--shade_dark);
-	padding-bottom: 4px;
-}
-section ul, section li {
-	flex-grow: 1;
-	text-align: center;
-}
-section ul {
-	padding: 0 5vw;
-}
-
 
 /*
 	Work tiles:
  */
-.work {
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
+#work > div {
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	justify-items: center;
+	grid-gap: 3vmin;
 	height: 100%;
 	width: 100%;
 	padding: 0.625em 2em;
-	flex-wrap: wrap;
 }
-div > a {
-	flex: 1 0 250px;
+#work a {
+	width: 100%;
 	padding: 0px;
-	width: auto;
-	height: auto;
-	max-width: 350px;
 }
-div > a > img {
+#work img {
+	width: 100%;
 	object-fit: contain;
-	max-width:100%;
-	max-height:100%;
 }
-div > a:nth-child(1) {
-	flex-grow: 5;
-	max-width: 500px;
+#work a:nth-child(1) {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 3;
 }
-div > a {
+
+/*
+	Text over work tile:
+ */
+#work a {
 	position: relative;
-	border: 8px solid var(--shade_light);
+	border: 8px solid var(--secondary);
 }
-a > div {
-	background: var(--shade_light);
+#work a > div {
+	background: var(--secondary);
 	position: absolute;
 	left: 0px;
 	bottom: 20%;
+	text-align: left;
+	min-width: 100px;
+	padding: 0.2em 1em;
+}
+#work h3 {
+	letter-spacing: 1px;
+}
+#work p {
+	font-size: 1.2em;
+	letter-spacing: 1px;
+}
+
+/*
+	Contact Me:
+ */
+#contact ul {
+	justify-content: flex-end;
+	padding: 0 5vw;
+	height: 100%;
+}
+#contact a {
+	color: var(--primary);
+	text-decoration: none;
+	border-bottom: 2px solid var(--primary);
+	padding-bottom: 4px;
+}
+#contact ul, #contact li {
+	flex-grow: 1;
+	text-align: center;
 }
 
 /*
@@ -202,43 +218,53 @@ a > div {
 			- Break each list item onto seperate lines (align text on right).
 			- Align section headers above content from the left.
  */
+@media all and (max-width: 1300px) {
+	#work > div {
+		grid-template-columns: 33% 33% 33%;
+	}
+}
 @media all and (max-width: 1100px) {
-	section span {
+	#contact span {
 		flex-basis: 100%;
 	}
 }
 @media all and (max-width: 900px) {
-	nav > ul > span {
+	header span {
 		flex-basis: 100%;
 	}
 	main {
 		padding: 20px 0;
 	}
+	#work > div {
+		grid-template-columns: 50% 50%;
+	}
 }
 @media all and (max-width: 600px) {
-	figure {
-		justify-content: center;
-	}
-	nav li {
+	header li {
 		flex-basis: 100%;
 		text-align: right;
 	}
-	section {
-		flex-direction: column;
+	figure {
+		justify-content: center;
 	}
-	figure > h2 {
+	h2 {
 		font-size: 1.8em;
 	}
 	main h2 {
 		flex: 0 0 1.5em;
 		width: 80vw;
 		border-right: none;
-		border-bottom: 2px solid var(--shade_dark);
+		border-bottom: 2px solid var(--primary);
 		text-align: center;
 		margin: 0 auto;
-		font-size: 1.8em;
 	}
-	section li {
+	section {
+		flex-direction: column;
+	}
+	#work > div {
+		grid-template-columns: auto;
+	}
+	#contact li {
 		justify-self: center;
 	}
 }
