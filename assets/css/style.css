@@ -262,7 +262,13 @@ main h2 {
 		flex-direction: column;
 	}
 	#work > div {
-		grid-template-columns: auto;
+		grid-template-columns: 100%;
+	}
+	#work a:nth-child(1) {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 1;
+		grid-row-end: 2;
 	}
 	#contact li {
 		justify-self: center;
