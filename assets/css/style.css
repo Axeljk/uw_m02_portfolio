@@ -13,10 +13,15 @@
 	--base:			#f3f3f3;
 	--primary:		#2d4d66;
 	--secondary:	#73d7e1;
+
+	--dBase:		#0d1930;
+	--dPrimary:		#53b7c1;
+	--dSecondary:	#030b1c;
 }
 * {
 	box-sizing: border-box;
 	font-family: "Arimo", Verdana, sans-serif;
+	color: var(--primary);
 	margin: 0;
 	padding: 0;
 }
@@ -56,6 +61,20 @@ ul {
 li {
 	display: inline;
 	padding: 5px 20px;
+}
+
+/*
+	Dark mode:
+ */
+#switch {
+	position: fixed;
+	background: var(--primary);
+	color: var(--secondary);
+	padding: 0.625em;
+	bottom: 0;
+}
+#switch label {
+	color: inherit;
 }
 
 /*
