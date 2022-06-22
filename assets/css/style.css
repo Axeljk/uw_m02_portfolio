@@ -75,7 +75,7 @@ nav {
 h1 {
 	background-color: var(--secondary);
 	color: var(--primary);
-	flex: 1 1 8em;
+	flex: 1 2 8em;
 	padding: 2px 10px;
 	text-align: right;
 }
@@ -138,26 +138,40 @@ main h2 {
 	text-indent: 1em;
 	padding: 0.625em 2em;
 }
+#about img {
+	display: block;
+	height: 150px;
+	width: 150px;
+	margin: 0.625em 0.5em 0.1em 2em;
+	float: left;
+}
 
 /*
 	Work tiles:
  */
 #work > div {
 	display: grid;
-	grid-template-columns: 25% 25% 25% 25%;
+	grid-template-columns: repeat(4, 18vw);
+	grid-template-rows: repeat(3, 18vw);
 	justify-items: center;
-	grid-gap: 3vmin;
-	height: 100%;
-	width: 100%;
+	grid-gap: 1.5vw;
+	height: 58vw;
+	width: 80vw;
 	padding: 0.625em 2em;
 }
 #work a {
+	background-image: url("../img/azulejos.jpg");
+	border: 8px solid var(--secondary);
+	height: 100%;
 	width: 100%;
 	padding: 0px;
+	position: relative;
 }
 #work img {
 	width: 100%;
 	object-fit: contain;
+	visibility: hidden;
+
 }
 #work a:nth-child(1) {
 	grid-column-start: 1;
@@ -165,14 +179,14 @@ main h2 {
 	grid-row-start: 1;
 	grid-row-end: 3;
 }
+#work a:hover img {
+	visibility: visible;
+	background-color: #000;
+}
 
 /*
 	Text over work tile:
  */
-#work a {
-	position: relative;
-	border: 8px solid var(--secondary);
-}
 #work a > div {
 	background: var(--secondary);
 	position: absolute;
@@ -183,9 +197,11 @@ main h2 {
 	padding: 0.2em 1em;
 }
 #work h3 {
+	color: var(--primary);
 	letter-spacing: 1px;
 }
 #work p {
+	color: var(--primary);
 	font-size: 1.2em;
 	letter-spacing: 1px;
 }
@@ -220,7 +236,9 @@ main h2 {
  */
 @media all and (max-width: 1300px) {
 	#work > div {
-		grid-template-columns: 33% 33% 33%;
+		grid-template-columns: 23vw 23vw 23vw;
+		grid-template-rows: 23vw 23vw 23vw 23vw;
+		height: 98.5vw;
 	}
 }
 @media all and (max-width: 1100px) {
@@ -236,7 +254,9 @@ main h2 {
 		padding: 20px 0;
 	}
 	#work > div {
-		grid-template-columns: 50% 50%;
+		grid-template-columns: 33vw 33vw;
+		grid-template-rows: 33vw 33vw 33vw 33vw 33vw 33vw;
+		height: 209vw;
 	}
 }
 @media all and (max-width: 600px) {
@@ -250,6 +270,9 @@ main h2 {
 	h2 {
 		font-size: 1.8em;
 	}
+	h3 {
+		font-size: 1.5em;
+	}
 	main h2 {
 		flex: 0 0 1.5em;
 		width: 80vw;
@@ -261,8 +284,15 @@ main h2 {
 	section {
 		flex-direction: column;
 	}
+	#work {
+		padding: 0;
+	}
 	#work > div {
-		grid-template-columns: 100%;
+		padding: 5vw;
+		height: 828vw;
+		width: 100vw;
+		grid-template-columns: 89.5vw;
+		grid-template-rows: repeat(9, 89.5vw);
 	}
 	#work a:nth-child(1) {
 		grid-column-start: 1;
