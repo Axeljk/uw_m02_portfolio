@@ -258,18 +258,19 @@ main h2 {
 	left: 0px;
 	bottom: 20%;
 	text-align: left;
-	min-width: 100px;
+	max-width: 100%;
+	overflow: hidden;
 	padding: 4px 16px;
 }
 #work h3 {
-	font-size: 1.9rem;
+	font-size: 1.5rem;
 	color: var(--secondary);
 	letter-spacing: 1px;
 }
 #work p {
 	font-size: 1rem;
 	color: var(--secondary);
-	font-size: 1.2rem;
+	font-size: 1rem;
 	letter-spacing: 1px;
 }
 
@@ -313,12 +314,6 @@ main h2 {
 @media all and (max-width: 1100px) {
 	#contact span {
 		flex-basis: 100%;
-	}
-	#work h3 {
-		font-size: 3vw;
-	}
-	#work p {
-		font-size: 2vw;
 	}
 }
 @media all and (max-width: 900px) {
