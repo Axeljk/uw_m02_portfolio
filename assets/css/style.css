@@ -47,9 +47,6 @@ h1 {
 h2 {
 	font-size: 2.3em;
 }
-h3 {
-	font-size: 1.9em;
-}
 ul {
 	/* Flex. */
 	display: flex;
@@ -225,12 +222,9 @@ main h2 {
  */
 #work > div {
 	display: grid;
-	grid-template-columns: repeat(4, 18vw);
-	grid-template-rows: repeat(3, 18vw);
+	grid-template-columns: repeat(4, auto);
 	justify-items: center;
 	grid-gap: 1.5vw;
-	height: 58vw;
-	width: 80vw;
 	padding: 0.625em 2em;
 }
 #work a {
@@ -240,6 +234,7 @@ main h2 {
 	width: 100%;
 	padding: 0px;
 	position: relative;
+	font-size: 0px;
 }
 #work img {
 	width: 100%;
@@ -264,15 +259,17 @@ main h2 {
 	bottom: 20%;
 	text-align: left;
 	min-width: 100px;
-	padding: 0.2em 1em;
+	padding: 4px 16px;
 }
 #work h3 {
+	font-size: 1.9rem;
 	color: var(--secondary);
 	letter-spacing: 1px;
 }
 #work p {
+	font-size: 1rem;
 	color: var(--secondary);
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	letter-spacing: 1px;
 }
 
@@ -310,14 +307,18 @@ main h2 {
  */
 @media all and (max-width: 1300px) {
 	#work > div {
-		grid-template-columns: repeat(3, 23vw);
-		grid-template-rows: repeat(4, 23vw);
-		height: 98.5vw;
+		grid-template-columns: repeat(3, auto);
 	}
 }
 @media all and (max-width: 1100px) {
 	#contact span {
 		flex-basis: 100%;
+	}
+	#work h3 {
+		font-size: 3vw;
+	}
+	#work p {
+		font-size: 2vw;
 	}
 }
 @media all and (max-width: 900px) {
@@ -328,9 +329,7 @@ main h2 {
 		padding: 20px 0 3em 0;
 	}
 	#work > div {
-		grid-template-columns: repeat(2, 33vw);
-		grid-template-rows: repeat(6, 33vw);
-		height: 209vw;
+		grid-template-columns: repeat(2, auto);
 	}
 }
 @media all and (max-width: 600px) {
@@ -343,9 +342,6 @@ main h2 {
 	}
 	h2 {
 		font-size: 1.8em;
-	}
-	h3 {
-		font-size: 1.5em;
 	}
 	main h2 {
 		flex: 0 0 1.5em;
@@ -363,16 +359,19 @@ main h2 {
 	}
 	#work > div {
 		padding: 5vw;
-		height: 828vw;
-		width: 100vw;
-		grid-template-columns: 89.5vw;
-		grid-template-rows: repeat(9, 89.5vw);
+		grid-template-columns: auto;
 	}
 	#work a:nth-child(1) {
 		grid-column-start: 1;
 		grid-column-end: 2;
 		grid-row-start: 1;
 		grid-row-end: 2;
+	}
+	#work h3 {
+		font-size: 5vw;
+	}
+	#work p {
+		font-size: 4vw;
 	}
 	#contact li {
 		justify-self: center;
