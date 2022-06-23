@@ -25,7 +25,7 @@
 	color: var(--primary);
 	margin: 0;
 	padding: 0;
-	transition: 0.55s
+	transition: color 0.55s, background-color 0.55s;
 }
 body {
 	background: var(--base);
@@ -79,7 +79,7 @@ li {
 	background: var(--secondary);
 	width: 145px;
 	height: 40px;
-	bottom: 1em;
+	bottom: 2em;
 	z-index: 1000;
 }
 #switch input {
@@ -113,6 +113,7 @@ li {
 	transition: .38s;
 	font-weight: 600;
 }
+/* Appearance change when switched to dark mode: */
 input:checked + #slide {
 	background-color: #2196F3;
 }
@@ -218,6 +219,9 @@ main h2 {
 
 /*
 	Work tiles:
+		- <div> is the container holding it all together.
+		- <a> is the tiles themselves.
+		- The img inside each <a> is hidden when not viewed; shows background.
  */
 #work > div {
 	display: grid;
@@ -231,7 +235,7 @@ main h2 {
 }
 #work a {
 	background-image: url("../img/azulejos.jpg");
-	border: 8px solid var(--secondary);
+	border: 8px solid var(--primary);
 	height: 100%;
 	width: 100%;
 	padding: 0px;
@@ -240,8 +244,8 @@ main h2 {
 #work img {
 	width: 100%;
 	object-fit: contain;
-	visibility: hidden;
-
+	opacity: 0.0;
+	transition: opacity 2s 0.5s;
 }
 #work a:nth-child(1) {
 	grid-column-start: 1;
@@ -249,16 +253,12 @@ main h2 {
 	grid-row-start: 1;
 	grid-row-end: 3;
 }
-#work a:hover img {
-	visibility: visible;
-	background-color: #000;
-}
 
 /*
 	Text over work tile:
  */
 #work a > div {
-	background: var(--secondary);
+	background: var(--primary);
 	position: absolute;
 	left: 0px;
 	bottom: 20%;
@@ -267,11 +267,11 @@ main h2 {
 	padding: 0.2em 1em;
 }
 #work h3 {
-	color: var(--primary);
+	color: var(--secondary);
 	letter-spacing: 1px;
 }
 #work p {
-	color: var(--primary);
+	color: var(--secondary);
 	font-size: 1.2em;
 	letter-spacing: 1px;
 }
@@ -297,17 +297,21 @@ main h2 {
 
 /*
 	Media inquires:
+		- Screens below 1301px width:
+			- Work tiles has three columns.
 		- Screens below 901px width:
-			- Break list instead of pushing last item to new row.
+			- Break nav list instead of pushing last item to new row.
+			- Work tiles has two columns.
 		- Screens below 601px width:
 			- Center subtitle on hero (and its text).
 			- Break each list item onto seperate lines (align text on right).
 			- Align section headers above content from the left.
+			- Work tiles has one column.
  */
 @media all and (max-width: 1300px) {
 	#work > div {
-		grid-template-columns: 23vw 23vw 23vw;
-		grid-template-rows: 23vw 23vw 23vw 23vw;
+		grid-template-columns: repeat(3, 23vw);
+		grid-template-rows: repeat(4, 23vw);
 		height: 98.5vw;
 	}
 }
@@ -324,8 +328,8 @@ main h2 {
 		padding: 20px 0 3em 0;
 	}
 	#work > div {
-		grid-template-columns: 33vw 33vw;
-		grid-template-rows: 33vw 33vw 33vw 33vw 33vw 33vw;
+		grid-template-columns: repeat(2, 33vw);
+		grid-template-rows: repeat(6, 33vw);
 		height: 209vw;
 	}
 }
