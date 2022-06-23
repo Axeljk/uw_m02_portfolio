@@ -8,15 +8,16 @@
 		- Padding and margin off for tighter layout.
 		- Content requires a minimum of 300px width to function.
 		- Headers are serif fonts; everything else is sans-serif.
+		- Transition timing is used by dark mode button.
  */
 :root {
 	--base:			#f3f3f3;
 	--primary:		#2d4d66;
 	--secondary:	#73d7e1;
 
-	--dBase:		#0d1930;
+	--dBase:		#121212;
 	--dPrimary:		#53b7c1;
-	--dSecondary:	#030b1c;
+	--dSecondary:	#162951;
 }
 * {
 	box-sizing: border-box;
@@ -24,6 +25,7 @@
 	color: var(--primary);
 	margin: 0;
 	padding: 0;
+	transition: 0.55s
 }
 body {
 	background: var(--base);
@@ -65,16 +67,64 @@ li {
 
 /*
 	Dark mode:
+		- switch is the label everything sits in.
+		- input is a checkbox but it is hidden because they are ugly.
+		- slide is the actual box seen in place of the check.
+			- slide:before is the box.
+			- slide:after is the text on it.
  */
 #switch {
 	position: fixed;
-	background: var(--primary);
-	color: var(--secondary);
-	padding: 0.625em;
-	bottom: 0;
+	display: inline-block;
+	background: var(--secondary);
+	width: 145px;
+	height: 40px;
+	bottom: 1em;
+	z-index: 1000;
 }
-#switch label {
-	color: inherit;
+#switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.slider {
+	position: absolute;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+#slide:before {
+	cursor: pointer;
+	position: absolute;
+	content: "";
+	height: 32px;
+	width: 97px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--base);
+	transition: .4s;
+}
+#slide:after {
+	cursor: pointer;
+	position: absolute;
+	content: "Light Mode";
+	left: 13px;
+	bottom: 10px;
+	transition: .38s;
+	font-weight: 600;
+}
+input:checked + #slide {
+	background-color: #2196F3;
+}
+input:checked + #slide {
+	background-color: #2196F3;
+}
+input:checked + #slide:before {
+	transform: translateX(40px);
+}
+input:checked + #slide:after {
+	content: "Dark Mode";
+	left: 54px;
 }
 
 /*

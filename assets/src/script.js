@@ -1,6 +1,6 @@
 console.log("hmm");
 
-function myFunction() {
+function ThemeToggle() {
 	const root = document.documentElement;
 	let cBase = getComputedStyle(root).getPropertyValue("--base");
 	let cDBase = getComputedStyle(root).getPropertyValue("--dBase");
