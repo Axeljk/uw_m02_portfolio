@@ -211,8 +211,9 @@ main h2 {
 	display: block;
 	height: 150px;
 	width: 150px;
-	margin: 0.625em 0.5em 0.1em 2em;
+	margin: 0.625em 1em 0.1em 2em;
 	float: left;
+	filter: drop-shadow(6px 6px var(--primary));
 }
 
 /*
@@ -320,7 +321,7 @@ main h2 {
 		flex-basis: 100%;
 	}
 	main {
-		padding: 20px 0;
+		padding: 20px 0 3em 0;
 	}
 	#work > div {
 		grid-template-columns: 33vw 33vw;
