@@ -295,6 +295,8 @@ main h2 {
 
 /*
 	Media inquires:
+		- Screens above 3000px width:
+			- Work tiles has six columns.
 		- Screens below 1301px width:
 			- Work tiles has three columns.
 		- Screens below 901px width:
@@ -306,6 +308,24 @@ main h2 {
 			- Align section headers above content from the left.
 			- Work tiles has one column.
  */
+@media all and (min-width: 2800px) {
+	section {
+		justify-content: flex-start;
+	}
+}
+@media all and (min-width: 3525px) {
+	#work > div {
+		width: 100%;
+		grid-template-columns: repeat(6, 16.67%);
+	}
+	#work img:nth-child(1) {
+
+	}
+	#work a:nth-child(1) {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+}
 @media all and (max-width: 1300px) {
 	#work > div {
 		grid-template-columns: repeat(3, auto);
